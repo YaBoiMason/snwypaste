@@ -2,6 +2,28 @@ const urlParams = new URLSearchParams(window.location.search);
 
 var highlight = "text/plain";
 
+$('#popupBoxClose').click( function() {           
+    unloadPopupBox();
+});
+
+$('#container').click( function() {
+    unloadPopupBox();
+});
+
+function unloadPopupBox() {    // TO Unload the Popupbox
+    $('#popup_box').fadeOut("fast");
+    $("#container").css({ // this is just for style       
+        "opacity": "1" 
+    });
+}   
+
+function loadPopupBox() {    // To Load the Popupbox
+    $('#popup_box').fadeIn("fast");
+    $("#container").css({ // this is just for style
+        "opacity": "0.3" 
+    });        
+}    
+
 if(urlParams.get('hil'))
 {
     if(urlParams.get('hil') != "text/plain")
@@ -23,8 +45,10 @@ var codeMirror = CodeMirror(document.body,
 document.addEventListener("keydown", function(e) {
     if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode == 83) {
       e.preventDefault();
-      var link = window.location.hostname + "/?hil=" + highlight + "&data=" + LZUTF8.compress(codeMirror.getValue(), {"outputEncoding": "Base64"});
-      alert(link);
+      var link = "https://" + window.location.hostname + "/snwypaste/?hil=" + highlight + "&data=" + LZUTF8.compress(codeMirror.getValue(), {"outputEncoding": "Base64"});
+      var poptext =document.getElementById("popup_box_text");
+      poptext.innerHTML = "<h1>"+link+"</h1>";
+      loadPopupBox();
     }
   }, false);
 

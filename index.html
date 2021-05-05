@@ -6,11 +6,19 @@
     <script src="mode/clike/clike.js"></script>
     <link rel="stylesheet" href="lib/codemirror.css">
     <link rel="stylesheet" href="theme/dracula.css">
+    <link rel="stylesheet" href="popup.css">
     <script id="lzutf8" src="https://cdn.jsdelivr.net/npm/lzutf8/build/production/lzutf8.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         .CodeMirror {padding: 1px; position: absolute; margin: 0px; left: 0px; right: 0px; top: 0px; bottom: 0px; width: auto; height: auto; word-wrap: break-word;  }
     </style> 
 </head>
 <body>
     <script type="module" src="index.js"></script>
+    <div id="popup_box">   
+        <div id="popup_box_text">
+            <h1>if you see this, file a bug in github with your paste text</h1>
+        </div>
+        <a id="popupBoxClose">×</a>   
+    </div>
 </body>
