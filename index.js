@@ -12,7 +12,7 @@ if(urlParams.get('hil'))
 
 function generateLink()
 {
-    var link = window.location.hostname + "/?hil=" + highlight + "&data=" + LZUTF8.compress(codeMirror.getValue(), {"outputEncoding": "Base64"});
+    var link = window.location.hostname + "/snwypaste/?hil=" + highlight + "&data=" + LZUTF8.compress(codeMirror.getValue(), {"outputEncoding": "Base64"});
     alert(link);
 }
 
