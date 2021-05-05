@@ -10,12 +10,6 @@ if(urlParams.get('hil'))
     }
 }
 
-function generateLink()
-{
-    var link = window.location.hostname + "/?hil=" + highlight + "&data=" + LZUTF8.compress(codeMirror.getValue(), {"outputEncoding": "Base64"});
-    alert(link);
-}
-
 var codeMirror = CodeMirror(document.body,
     {
         lineNumbers: true,
@@ -25,10 +19,12 @@ var codeMirror = CodeMirror(document.body,
         mode: highlight,
         smartIndent: false
     });
+    
 document.addEventListener("keydown", function(e) {
     if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode == 83) {
       e.preventDefault();
-      generateLink();
+      var link = window.location.hostname + "/?hil=" + highlight + "&data=" + LZUTF8.compress(codeMirror.getValue(), {"outputEncoding": "Base64"});
+      alert(link);
     }
   }, false);
 
